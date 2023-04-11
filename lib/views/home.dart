@@ -38,7 +38,7 @@ class _HomeState extends State<Home> {
             }, icon: const Icon(Icons.search,color: Colors.black,))
           ],
         ),
-        body: RecipeCard( recipe : Recipe("My recipe",
+        body: RecipeCard( recipe : Recipe("My recipe", "mhgfmhvmjb,jb jhbgjfhg  mhjfvktdrsxx ;otes sjjg fcgfjjhgj yjtdhgfjhgb kudfhgf kjtfthf jgffhjgj",
              "30 min",
              "4.5",
             "https://lh3.googleusercontent.com/ei5eF1LRFkkcekhjdR_8XgOqgdjpomf-rda_vvh7jIauCgLlEWORINSKMRR6I6iTcxxZL9riJwFqKMvK0ixS0xwnRHGMY4I5Zw=s360"))

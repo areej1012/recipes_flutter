@@ -1,5 +1,10 @@
+
 import 'package:flutter/material.dart';
 import 'package:recipes/Recipe.dart';
+import 'package:recipes/views/widgets/recipe_image.dart';
+import 'package:recipes/views/widgets/recipe_info.dart';
+
+import '../AppColor.dart';
 class RecipeDetails extends StatefulWidget {
   final Recipe recipe;
   const RecipeDetails({required this.recipe ,Key? key}) : super(key: key);
@@ -8,7 +13,41 @@ class RecipeDetails extends StatefulWidget {
   State<RecipeDetails> createState() => _RecipeDetailsState();
 }
 
-class _RecipeDetailsState extends State<RecipeDetails> {
+class _RecipeDetailsState extends State<RecipeDetails> with TickerProviderStateMixin {
+  late TabController _tabController;
+  late ScrollController _scrollController;
+  Color appBarColor = Colors.transparent;
+
+  changeAppBarColor(ScrollController scrollController) {
+    if (scrollController.position.hasPixels) {
+      if (scrollController.position.pixels > 2.0) {
+        setState(() {
+          appBarColor = Colors.white;
+        });
+      }
+      if (scrollController.position.pixels <= 2.0) {
+        setState(() {
+          appBarColor = Colors.transparent;
+        });
+      }
+    } else {
+      setState(() {
+        appBarColor = Colors.transparent;
+      });
+    }
+  }
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 2, vsync: this);
+    _scrollController = ScrollController(initialScrollOffset: 0.0);
+  }
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    _tabController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,16 +55,64 @@ class _RecipeDetailsState extends State<RecipeDetails> {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(60),
         child: AnimatedContainer(
-          color: Colors.white,
+          color: appBarColor,
           duration: Duration(milliseconds: 200),
           child: AppBar(
             backgroundColor: Colors.transparent,
             brightness: Brightness.dark,
             elevation: 0,
             centerTitle: true,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(bottom: Radius.circular(16))
+            ),
             title: Text(widget.recipe.title, style: TextStyle(fontFamily: 'inter', fontWeight: FontWeight.w400, fontSize: 16),),
+            leading: IconButton(
+              icon: Icon(Icons.arrow_back_ios, color: Colors.white,),
+              onPressed: (){Navigator.of(context).pop();},
+            ),
+            actions: [
+              IconButton(onPressed: (){}, icon: Icon(Icons.favorite_border,color: Colors.white))
+            ],
           ),
         ),
+      ),
+
+      body: ListView(
+        controller: _scrollController,
+        shrinkWrap: true,
+        physics: BouncingScrollPhysics(),
+        padding: EdgeInsets.zero,
+        children: [
+          RecipeImage(urlImage: widget.recipe.urlImage),
+          RecipeInfo(recipe: widget.recipe),
+          Container(
+            height: 60,
+            width: MediaQuery.of(context).size.width,
+            color: AppColor.secondary,
+            child: TabBar(
+              controller: _tabController,
+              onTap: (index) {
+                setState(() {
+                  _tabController.index = index;
+                });
+              },
+              labelColor: Colors.black,
+              unselectedLabelColor: Colors.black.withOpacity(0.6),
+              labelStyle: TextStyle(fontFamily: 'inter', fontWeight: FontWeight.w500),
+              indicatorColor: Colors.black,
+              tabs: [
+                Tab(
+                  text: 'Ingridients',
+                ),
+                Tab(
+                  text: 'Tutorial',
+                ),
+
+              ],
+            ),
+          ),
+
+        ],
       ),
     );
   }
