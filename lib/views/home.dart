@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:recipes/search_delegate.dart';
 import 'package:recipes/views/widgets/recipe_card.dart';
 
+import '../Recipe.dart';
+
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -36,10 +38,10 @@ class _HomeState extends State<Home> {
             }, icon: const Icon(Icons.search,color: Colors.black,))
           ],
         ),
-        body: RecipeCard(title: "My recipe",
-          cookTime: "30 min",
-          rating: "4.5",
-          urlImage: "https://lh3.googleusercontent.com/ei5eF1LRFkkcekhjdR_8XgOqgdjpomf-rda_vvh7jIauCgLlEWORINSKMRR6I6iTcxxZL9riJwFqKMvK0ixS0xwnRHGMY4I5Zw=s360",)
+        body: RecipeCard( recipe : Recipe("My recipe",
+             "30 min",
+             "4.5",
+            "https://lh3.googleusercontent.com/ei5eF1LRFkkcekhjdR_8XgOqgdjpomf-rda_vvh7jIauCgLlEWORINSKMRR6I6iTcxxZL9riJwFqKMvK0ixS0xwnRHGMY4I5Zw=s360"))
     );
   }
 }
