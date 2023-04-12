@@ -3,9 +3,15 @@ import 'package:recipes/search_delegate.dart';
 import 'package:recipes/views/widgets/recipe_card.dart';
 
 import '../Recipe.dart';
+import '../ingridient.dart';
+import '../tutorial_step.dart';
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+
+   Home({Key? key}) : super(key: key);
+  final List<Ingridient> ingridient = [Ingridient("test","1"),Ingridient("tesst test ","2"),Ingridient("trddt ","3")];
+   final List<TutorialStep> tutorialStep = [TutorialStep("1","jkjwlkjnldsej eskhfkejds kjhfksnf efksfne,kes f"),TutorialStep("2","skjhdfkjhfkjfd dskfvsjkgr,md test "),TutorialStep("3","dfskluhdskjciukdjnfedskujsdks ")];
+
 
   @override
   State<Home> createState() => _HomeState();
@@ -41,7 +47,9 @@ class _HomeState extends State<Home> {
         body: RecipeCard( recipe : Recipe("My recipe", "mhgfmhvmjb,jb jhbgjfhg  mhjfvktdrsxx ;otes sjjg fcgfjjhgj yjtdhgfjhgb kudfhgf kjtfthf jgffhjgj",
              "30 min",
              "4.5",
-            "https://lh3.googleusercontent.com/ei5eF1LRFkkcekhjdR_8XgOqgdjpomf-rda_vvh7jIauCgLlEWORINSKMRR6I6iTcxxZL9riJwFqKMvK0ixS0xwnRHGMY4I5Zw=s360"))
+            "https://lh3.googleusercontent.com/ei5eF1LRFkkcekhjdR_8XgOqgdjpomf-rda_vvh7jIauCgLlEWORINSKMRR6I6iTcxxZL9riJwFqKMvK0ixS0xwnRHGMY4I5Zw=s360",
+        widget.ingridient,
+        widget.tutorialStep))
     );
   }
 }

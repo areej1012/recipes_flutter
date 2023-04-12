@@ -1,8 +1,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:recipes/Recipe.dart';
+import 'package:recipes/views/widgets/ingridient_tile.dart';
 import 'package:recipes/views/widgets/recipe_image.dart';
 import 'package:recipes/views/widgets/recipe_info.dart';
+import 'package:recipes/views/widgets/step_tile.dart';
 
 import '../AppColor.dart';
 class RecipeDetails extends StatefulWidget {
@@ -111,7 +113,33 @@ class _RecipeDetailsState extends State<RecipeDetails> with TickerProviderStateM
               ],
             ),
           ),
-
+          // IndexedStack based on TabBar index
+          IndexedStack(
+            index: _tabController.index,
+            children: [
+              ListView.builder(
+                shrinkWrap: true,
+                  padding: EdgeInsets.zero,
+                  itemCount: widget.recipe.ingridient.length,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index){
+                    return IngridientTile(
+                      data: widget.recipe.ingridient[index],
+                    );
+                  }),
+              ListView.builder(
+                shrinkWrap: true,
+                padding: EdgeInsets.zero,
+                itemCount: widget.recipe.tutorialStep.length,
+                physics: NeverScrollableScrollPhysics(),
+                itemBuilder: (context, index) {
+                  return StepTile(
+                    data: widget.recipe.tutorialStep[index],
+                  );
+                },
+              ),
+            ],
+          )
         ],
       ),
     );

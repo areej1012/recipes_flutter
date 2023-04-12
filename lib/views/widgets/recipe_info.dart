@@ -18,7 +18,7 @@ class RecipeInfo extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(Icons.star, color: Colors.white,),
+              Icon(Icons.star, size: 16,color: Colors.white,),
               Container(
                 margin: EdgeInsets.only(left: 5),
                 child: Text(
