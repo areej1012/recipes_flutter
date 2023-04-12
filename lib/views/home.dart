@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipes/search_delegate.dart';
+import 'package:recipes/views/widgets/bottomNavigationBar.dart';
 import 'package:recipes/views/widgets/recipe_card.dart';
 
 import '../Recipe.dart';
@@ -10,7 +11,7 @@ class Home extends StatefulWidget {
 
    Home({Key? key}) : super(key: key);
   final List<Ingridient> ingridient = [Ingridient("test","1"),Ingridient("tesst test ","2"),Ingridient("trddt ","3")];
-   final List<TutorialStep> tutorialStep = [TutorialStep("1","jkjwlkjnldsej eskhfkejds kjhfksnf efksfne,kes f"),TutorialStep("2","skjhdfkjhfkjfd dskfvsjkgr,md test "),TutorialStep("3","dfskluhdskjciukdjnfedskujsdks ")];
+   final List<TutorialStep> tutorialStep = [TutorialStep("1","jkjwlkjnldsej eskhfkejds kjhfkjhgnb hjgvh  hjfvb nf efksfne,kes f"),TutorialStep("2","skjhdfkjhfkjfd dskfvsjkgr,md test "),TutorialStep("3","dfskluhdskjciukdjnfedskujsdks ")];
 
 
   @override
@@ -44,6 +45,7 @@ class _HomeState extends State<Home> {
             }, icon: const Icon(Icons.search,color: Colors.black,))
           ],
         ),
+        bottomNavigationBar: bottomNavigationBar(),
         body: RecipeCard( recipe : Recipe("My recipe", "mhgfmhvmjb,jb jhbgjfhg  mhjfvktdrsxx ;otes sjjg fcgfjjhgj yjtdhgfjhgb kudfhgf kjtfthf jgffhjgj",
              "30 min",
              "4.5",
