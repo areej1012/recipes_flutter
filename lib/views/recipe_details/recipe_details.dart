@@ -1,12 +1,12 @@
 
 import 'package:flutter/material.dart';
-import 'package:recipes/Recipe.dart';
-import 'package:recipes/views/widgets/ingridient_tile.dart';
-import 'package:recipes/views/widgets/recipe_image.dart';
-import 'package:recipes/views/widgets/recipe_info.dart';
-import 'package:recipes/views/widgets/step_tile.dart';
+import 'package:recipes/model/Recipe.dart';
+import 'package:recipes/views/widgets/recipe_details/ingridient_tile.dart';
+import 'package:recipes/views/widgets/recipe_details/recipe_image.dart';
+import 'package:recipes/views/widgets/recipe_details/recipe_info.dart';
+import 'package:recipes/views/widgets/recipe_details/step_tile.dart';
 
-import '../AppColor.dart';
+import '../../AppColor.dart';
 class RecipeDetails extends StatefulWidget {
   final Recipe recipe;
   const RecipeDetails({required this.recipe ,Key? key}) : super(key: key);

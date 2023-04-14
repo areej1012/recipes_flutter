@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../ingridient.dart';
+import '../../../model/ingridient.dart';
 
 class IngridientTile extends StatelessWidget {
   final Ingridient data;

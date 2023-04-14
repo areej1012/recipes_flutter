@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../Recipe.dart';
+import '../../../model/Recipe.dart';
 
 class RecipeInfo extends StatelessWidget {
   final Recipe recipe;
@@ -22,7 +22,7 @@ class RecipeInfo extends StatelessWidget {
               Container(
                 margin: EdgeInsets.only(left: 5),
                 child: Text(
-                  recipe.rating,
+                  recipe.rating.toString(),
                   style: TextStyle(color: Colors.white, fontSize: 12),
                 ),
               ),

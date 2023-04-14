@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:recipes/search_delegate.dart';
-import 'package:recipes/views/widgets/bottomNavigationBar.dart';
-import 'package:recipes/views/widgets/recipe_card.dart';
+import 'package:recipes/views/widgets/bottomNavigation/bottomNavigationBar.dart';
+import 'package:recipes/views/widgets/recipe/recipe_card.dart';
 
-import '../Recipe.dart';
-import '../ingridient.dart';
-import '../tutorial_step.dart';
+import '../model/Recipe.dart';
+import '../model/ingridient.dart';
+import '../model/tutorial_step.dart';
 
 class Home extends StatefulWidget {
 
@@ -46,12 +46,12 @@ class _HomeState extends State<Home> {
           ],
         ),
         bottomNavigationBar: bottomNavigationBar(),
-        body: RecipeCard( recipe : Recipe("My recipe", "mhgfmhvmjb,jb jhbgjfhg  mhjfvktdrsxx ;otes sjjg fcgfjjhgj yjtdhgfjhgb kudfhgf kjtfthf jgffhjgj",
-             "30 min",
-             "4.5",
-            "https://lh3.googleusercontent.com/ei5eF1LRFkkcekhjdR_8XgOqgdjpomf-rda_vvh7jIauCgLlEWORINSKMRR6I6iTcxxZL9riJwFqKMvK0ixS0xwnRHGMY4I5Zw=s360",
-        widget.ingridient,
-        widget.tutorialStep))
+        body: RecipeCard( recipe : Recipe(id: 442, title: "My recipe", content: "mhgfmhvmjb,jb jhbgjfhg  mhjfvktdrsxx ;otes sjjg fcgfjjhgj yjtdhgfjhgb kudfhgf kjtfthf jgffhjgj",
+             cookTime: "30 min",
+             rating: 4.5,
+            urlImage: "https://lh3.googleusercontent.com/ei5eF1LRFkkcekhjdR_8XgOqgdjpomf-rda_vvh7jIauCgLlEWORINSKMRR6I6iTcxxZL9riJwFqKMvK0ixS0xwnRHGMY4I5Zw=s360",
+            ingridient: widget.ingridient,
+          tutorialStep: widget.tutorialStep, ))
     );
   }
 }

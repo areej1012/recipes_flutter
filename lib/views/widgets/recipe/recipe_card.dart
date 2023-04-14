@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:recipes/views/recipe_details.dart';
+import 'package:recipes/views/recipe_details/recipe_details.dart';
 
-import '../../Recipe.dart';
+import '../../../model/Recipe.dart';
 
 
 class RecipeCard extends StatelessWidget {
@@ -64,7 +64,7 @@ class RecipeCard extends StatelessWidget {
                       children: [
                         Icon(Icons.star,color: Colors.yellow,size: 18,),
                         SizedBox(width: 7,),
-                        Text(recipe.rating)
+                        Text(recipe.rating.toString())
                       ],
                     ),
                   ),

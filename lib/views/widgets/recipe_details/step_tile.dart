@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../tutorial_step.dart';
+import '../../../model/tutorial_step.dart';
 
 class StepTile extends StatelessWidget {
   final TutorialStep data;

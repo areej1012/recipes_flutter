@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../AppColor.dart';
+import '../../../AppColor.dart';
 
 class RecipeImage extends StatelessWidget {
   final String urlImage;
