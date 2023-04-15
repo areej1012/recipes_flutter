@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:recipes/model/Instruction.dart';
 
-import '../../../model/tutorial_step.dart';
 
 class StepTile extends StatelessWidget {
-  final TutorialStep data;
+  final Instruction data;
 
   const StepTile({required this.data, Key? key}) : super(key: key);
 
@@ -19,11 +19,11 @@ class StepTile extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
 
-          (data.description != null)
+          (data.display_text != null)
               ? Container(
                   margin: EdgeInsets.only(left: 5),
                   child: Text(
-                    "${data.step}. ${data.description}",
+                    "${data.position}. ${data.display_text}",
                     style: TextStyle(
                         color: Colors.black.withOpacity(0.8),
                         fontWeight: FontWeight.w500,

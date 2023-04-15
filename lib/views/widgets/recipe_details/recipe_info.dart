@@ -22,7 +22,7 @@ class RecipeInfo extends StatelessWidget {
               Container(
                 margin: EdgeInsets.only(left: 5),
                 child: Text(
-                  recipe.rating.toString(),
+                  recipe.results[0].user_ratings.count_positive.toString(),
                   style: TextStyle(color: Colors.white, fontSize: 12),
                 ),
               ),
@@ -31,7 +31,7 @@ class RecipeInfo extends StatelessWidget {
               Container(
                 margin: EdgeInsets.only(left: 5),
                 child: Text(
-                  recipe.cookTime,
+                  recipe.results[0].cook_time_minutes.toString(),
                   style: TextStyle(color: Colors.white, fontSize: 12),
                 ),
               ),
@@ -41,13 +41,13 @@ class RecipeInfo extends StatelessWidget {
           Container(
             margin: EdgeInsets.only(bottom: 12, top: 16),
             child: Text(
-              recipe.title,
+              recipe.results[0].name,
               style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w600, fontFamily: 'inter'),
             ),
           ),
           // Recipe Description
           Text(
-            recipe.content,
+            recipe.results[0].description,
             style: TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 14, height: 150 / 100),
           ),
         ],

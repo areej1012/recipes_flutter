@@ -34,13 +34,13 @@ class RecipeCard extends StatelessWidget {
           image: DecorationImage(
               colorFilter: ColorFilter.mode(
                   Colors.black.withOpacity(0.35), BlendMode.multiply),
-              image: NetworkImage(recipe.urlImage),
+              image: NetworkImage(recipe.results[0].thumbnail_url),
               fit: BoxFit.cover),),
         child: Stack(
           children: [
             Align(alignment: Alignment.center,child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 5.0),
-              child: Text(recipe.title,
+              child: Text(recipe.results[0].name,
               style: TextStyle(fontSize: 20),
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
@@ -64,7 +64,7 @@ class RecipeCard extends StatelessWidget {
                       children: [
                         Icon(Icons.star,color: Colors.yellow,size: 18,),
                         SizedBox(width: 7,),
-                        Text(recipe.rating.toString())
+                        Text(recipe.results[0].user_ratings.count_positive.toString())
                       ],
                     ),
                   ),
@@ -79,7 +79,7 @@ class RecipeCard extends StatelessWidget {
                       children: [
                         Icon(Icons.schedule,color: Colors.yellow,size: 18,),
                         SizedBox(width: 7,),
-                        Text(recipe.cookTime)
+                        Text(recipe.results[0].cook_time_minutes.toString())
                       ],
                     ),
                   )

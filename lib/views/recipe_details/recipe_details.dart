@@ -67,7 +67,7 @@ class _RecipeDetailsState extends State<RecipeDetails> with TickerProviderStateM
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(bottom: Radius.circular(16))
             ),
-            title: Text(widget.recipe.title, style: TextStyle(fontFamily: 'inter', fontWeight: FontWeight.w400, fontSize: 16),),
+            title: Text(widget.recipe.results[0].name, style: TextStyle(fontFamily: 'inter', fontWeight: FontWeight.w400, fontSize: 16),),
             leading: IconButton(
               icon: Icon(Icons.arrow_back_ios, color: Colors.white,),
               onPressed: (){Navigator.of(context).pop();},
@@ -85,7 +85,7 @@ class _RecipeDetailsState extends State<RecipeDetails> with TickerProviderStateM
         physics: BouncingScrollPhysics(),
         padding: EdgeInsets.zero,
         children: [
-          RecipeImage(urlImage: widget.recipe.urlImage),
+          RecipeImage(urlImage: widget.recipe.results[0].thumbnail_url),
           RecipeInfo(recipe: widget.recipe),
           Container(
             height: 60,
@@ -120,21 +120,21 @@ class _RecipeDetailsState extends State<RecipeDetails> with TickerProviderStateM
               ListView.builder(
                 shrinkWrap: true,
                   padding: EdgeInsets.zero,
-                  itemCount: widget.recipe.ingridient.length,
+                  itemCount: widget.recipe.results[0].sections[0].components.length,
                   physics: NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index){
                     return IngridientTile(
-                      data: widget.recipe.ingridient[index],
+                      data: widget.recipe.results[0].sections[0].components[index],
                     );
                   }),
               ListView.builder(
                 shrinkWrap: true,
                 padding: EdgeInsets.zero,
-                itemCount: widget.recipe.tutorialStep.length,
+                itemCount: widget.recipe.results[0].instructions.length,
                 physics: NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
                   return StepTile(
-                    data: widget.recipe.tutorialStep[index],
+                    data: widget.recipe.results[0].instructions[index],
                   );
                 },
               ),

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:recipes/model/Component.dart';
 
-import '../../../model/ingridient.dart';
+
 
 class IngridientTile extends StatelessWidget {
-  final Ingridient data;
+  final Component data;
 
   const IngridientTile({required this.data, Key? key}) : super(key: key);
 
@@ -25,7 +26,7 @@ class IngridientTile extends StatelessWidget {
                 height: 30,
                 child: Center(
                   child: Text(
-                    data.position,
+                    data.position.toString(),
                     style: TextStyle(color: Colors.black),
                   ),
                 ),
@@ -37,7 +38,7 @@ class IngridientTile extends StatelessWidget {
             Flexible(
               flex: 9,
               child: Text(
-                data.name,
+                data.raw_text,
                 style: TextStyle( color: Colors.black,
                     fontSize: 14, fontWeight: FontWeight.w600, height: 150 / 100),
               ),
