@@ -38,7 +38,7 @@ class IngridientTile extends StatelessWidget {
             Flexible(
               flex: 9,
               child: Text(
-                data.raw_text,
+                data.raw_text ?? "null",
                 style: TextStyle( color: Colors.black,
                     fontSize: 14, fontWeight: FontWeight.w600, height: 150 / 100),
               ),

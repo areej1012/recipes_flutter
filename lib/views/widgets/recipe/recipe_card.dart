@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:recipes/model/Result.dart';
 import 'package:recipes/views/recipe_details/recipe_details.dart';
 
 import '../../../model/Recipe.dart';
 
 
 class RecipeCard extends StatelessWidget {
-  final Recipe recipe;
+  final Result result;
 
   const RecipeCard(
       {Key? key,
-        required this.recipe})
+        required this.result})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){ Navigator.of(context).push(MaterialPageRoute(builder: (context) => RecipeDetails(recipe: recipe,)));},
+      onTap: (){ Navigator.of(context).push(MaterialPageRoute(builder: (context) => RecipeDetails(result: result,)));},
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
         width: MediaQuery.of(context).size.width,
@@ -34,13 +35,13 @@ class RecipeCard extends StatelessWidget {
           image: DecorationImage(
               colorFilter: ColorFilter.mode(
                   Colors.black.withOpacity(0.35), BlendMode.multiply),
-              image: NetworkImage(recipe.results[0].thumbnail_url),
+              image: NetworkImage(result.thumbnail_url ?? ""),
               fit: BoxFit.cover),),
         child: Stack(
           children: [
             Align(alignment: Alignment.center,child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 5.0),
-              child: Text(recipe.results[0].name,
+              child: Text(result.name ?? "without name",
               style: TextStyle(fontSize: 20),
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
@@ -64,7 +65,7 @@ class RecipeCard extends StatelessWidget {
                       children: [
                         Icon(Icons.star,color: Colors.yellow,size: 18,),
                         SizedBox(width: 7,),
-                        Text(recipe.results[0].user_ratings.count_positive.toString())
+                        Text(result.user_ratings?.count_positive.toString() ?? "0.0")
                       ],
                     ),
                   ),
@@ -79,7 +80,7 @@ class RecipeCard extends StatelessWidget {
                       children: [
                         Icon(Icons.schedule,color: Colors.yellow,size: 18,),
                         SizedBox(width: 7,),
-                        Text(recipe.results[0].cook_time_minutes.toString())
+                        Text(result.cook_time_minutes.toString())
                       ],
                     ),
                   )

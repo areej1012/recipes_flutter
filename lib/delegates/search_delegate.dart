@@ -5,19 +5,19 @@ import 'package:flutter/material.dart';
 class MySearchDelegate extends SearchDelegate {
   @override
   List<Widget>? buildActions(BuildContext context) => [
-        IconButton(
-            onPressed: () {
-              if (query.isEmpty) {
-                close(context, null);
-              } else {
-                query = " ";
-              }
-            },
-            icon: AnimatedIcon(
-              icon: AnimatedIcons.menu_close,
-              progress: transitionAnimation,
-            ))
-      ];
+    IconButton(
+        onPressed: () {
+          if (query.isEmpty) {
+            close(context, null);
+          } else {
+            query = " ";
+          }
+        },
+        icon: AnimatedIcon(
+          icon: AnimatedIcons.menu_close,
+          progress: transitionAnimation,
+        ))
+  ];
 
   @override
   Widget? buildLeading(BuildContext context) {
@@ -35,12 +35,12 @@ class MySearchDelegate extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) => Center(
-        child: Text(
-          query,
-          style: const TextStyle(
-              fontSize: 64, fontWeight: FontWeight.bold, color: Colors.black),
-        ),
-      );
+    child: Text(
+      query,
+      style: const TextStyle(
+          fontSize: 64, fontWeight: FontWeight.bold, color: Colors.black),
+    ),
+  );
 
   @override
   Widget buildSuggestions(BuildContext context) {

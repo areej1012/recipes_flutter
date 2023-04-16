@@ -1,6 +1,6 @@
 class Instruction{
-  final String display_text;
-  final int position;
+  final String? display_text;
+  final int? position;
 
   Instruction({required this.display_text, required this.position});
 
